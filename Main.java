@@ -67,7 +67,6 @@ public class Main {
         taskList.add(new Tasks(description, date, prior));
         System.out.println("Task added successfully!\n");
         displayOptions();
-
     }
     
     public static void markComplete(Scanner input){
@@ -83,6 +82,20 @@ public class Main {
 
     }
     public static void deleteTask(Scanner input){
+        System.out.print("Enter task number to delete : ");
+        int delete = input.nextInt();
+        input.nextLine();
+
+        if(delete >= 0 && delete <= taskList.size()){
+            taskList.remove(delete - 1);
+            System.out.println("Task deleted successfully!\n");
+            displayOptions();
+        }else{
+            System.out.println("Invalid Index. Please Try Again.");
+            deleteTask(input);
+        }
+
+
 
     }
     public static void viewTasks(){
