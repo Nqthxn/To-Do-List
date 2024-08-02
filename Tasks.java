@@ -22,6 +22,9 @@ public class Tasks{
     public int getStatus(){
         return status;
     }
+    public void setStatus(){
+        this.status = 1;
+    }
     public String toString(){
         String statusSymbol = (status == 1) ? "x" : " ";
         if(statusSymbol != "x"){

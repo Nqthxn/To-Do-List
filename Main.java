@@ -8,9 +8,6 @@ public class Main {
         System.out.println("========== TO-DO LIST ==========");
         displayTasks();
 
-        Scanner input = new Scanner(System.in);
-
-        
     }
     public static void displayTasks(){
         taskList.add(new Tasks("Buy groceries", "04/08/24", "High"));
@@ -74,6 +71,15 @@ public class Main {
     }
     
     public static void markComplete(Scanner input){
+        System.out.print("Enter task number to mark as complete : ");
+        int num = input.nextInt();
+        input.nextLine();
+
+        Tasks mark = taskList.get(num - 1);
+        mark.setStatus();
+
+        System.out.println("Tasked marked as complete!\n");
+        displayOptions();
 
     }
     public static void deleteTask(Scanner input){
@@ -82,7 +88,9 @@ public class Main {
     public static void viewTasks(){
         System.out.println("========== TASKS ==========");
         for(int j = 0; j < taskList.size(); j++){
-            System.out.println(taskList.get(j));
+            System.out.println((j + 1) + ". " + taskList.get(j));
         }
+        System.out.println();
+        displayOptions();
     }
 }
